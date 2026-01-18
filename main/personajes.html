@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>PEAK · Personajes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .main-content {
+            display: flex;
+            width: min(1400px, 98vw);
+            margin: 40px auto;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        /* ===== CONTENEDOR DE ESTADÍSTICAS (IZQUIERDA) ===== */
+        .stats-container {
+            flex: 0 0 300px;
+            border: 10px solid #8400ac;
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            height: calc(100% - 60px);
+        }
+
+        .stats-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .stats-title {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* ===== CONTENEDORES DERECHA ===== */
+        .right-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .character-container {
+            width: 100%;
+            border: 10px solid #8400ac;
+            border-radius: 20px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            min-height: 70vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            margin: 0;
+        }
+
+        /* FONDO CON OVERLAY */
+        .character-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('img/SeleccionPersonaje.webp') center/cover no-repeat;
+            z-index: 0;
+        }
+
+        /* OVERLAY BLANCO SEMI-TRANSPARENTE */
+        .character-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.685);
+            z-index: 1;
+        }
+
+        .character-info {
+            width: 100%;
+            background: url("images/background.jpg");
+            background-size: 150px 150px;
+            animation: scroll-bg 5s linear infinite;
+            border: 10px solid #8400ac;
+            border-radius: 20px;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        @keyframes scroll-bg {
+            to {
+                background-position: -150px -150px;
+            }
+        }
+
+        /* ===== IMAGEN ===== */
+        .character-image {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .character-image img {
+            max-width: 90%;
+            max-height: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* ESTILOS PARA DIFERENTES COLORES DE GLOW */
+        .glow-blue {
+            animation: glow-blue 2s infinite !important;
+        }
+        
+        .glow-red {
+            animation: glow-red 2s infinite !important;
+        }
+        
+        .glow-orange {
+            animation: glow-orange 2s infinite !important;
+        }
+        
+        .glow-purple {
+            animation: glow-purple 2s infinite !important;
+        }
+
+        /* ANIMACIONES PARA CADA COLOR */
+        @keyframes glow-blue {
+            0%, 100% { 
+                filter: drop-shadow(0 0 15px rgba(0, 174, 255, 0.8)) 
+                        drop-shadow(0 0 30px rgba(0, 174, 255, 0.6))
+                        drop-shadow(0 0 45px rgba(0, 174, 255, 0.4));
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(0, 174, 255, 1))
+                        drop-shadow(0 0 40px rgba(0, 174, 255, 0.8))
+                        drop-shadow(0 0 60px rgba(0, 174, 255, 0.6));
+            }
+        }
+
+        @keyframes glow-red {
+            0%, 100% { 
+                filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.8)) 
+                        drop-shadow(0 0 30px rgba(255, 0, 0, 0.6))
+                        drop-shadow(0 0 45px rgba(255, 0, 0, 0.4));
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(255, 0, 0, 1))
+                        drop-shadow(0 0 40px rgba(255, 0, 0, 0.8))
+                        drop-shadow(0 0 60px rgba(255, 0, 0, 0.6));
+            }
+        }
+
+        @keyframes glow-orange {
+            0%, 100% { 
+                filter: drop-shadow(0 0 15px rgba(255, 165, 0, 0.8)) 
+                        drop-shadow(0 0 30px rgba(255, 165, 0, 0.6))
+                        drop-shadow(0 0 45px rgba(255, 165, 0, 0.4));
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(255, 165, 0, 1))
+                        drop-shadow(0 0 40px rgba(255, 165, 0, 0.8))
+                        drop-shadow(0 0 60px rgba(255, 165, 0, 0.6));
+            }
+        }
+
+        @keyframes glow-purple {
+            0%, 100% { 
+                filter: drop-shadow(0 0 15px rgba(147, 51, 234, 0.8)) 
+                        drop-shadow(0 0 30px rgba(147, 51, 234, 0.6))
+                        drop-shadow(0 0 45px rgba(147, 51, 234, 0.4));
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(147, 51, 234, 1))
+                        drop-shadow(0 0 40px rgba(147, 51, 234, 0.8))
+                        drop-shadow(0 0 60px rgba(147, 51, 234, 0.6));
+            }
+        }
+
+        /* ===== NOMBRE ===== */
+        .character-name {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(24px, 5vw, 60px);
+            color: white;
+            font-weight: bold;
+            -webkit-text-stroke: 2px black;
+            filter: drop-shadow(0 0 0.9rem black);
+            text-wrap: nowrap;
+            z-index: 10;
+            pointer-events: none;
+            text-shadow: 
+                2px 2px 0 #000,
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        /* ===== CONTROLES ===== */
+        .character-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            padding: 10px;
+            z-index: 2;
+        }
+
+        .character-controls button {
+            flex: 1 1 auto;
+            min-width: 150px;
+            max-width: 250px;
+            padding: 15px 10px;
+            font-size: clamp(14px, 2vw, 26px);
+            font-weight: bold;
+            color: white;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .character-controls button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* COLORES FIJOS SIN GRADIENTE */
+        #peaker { 
+            background-color: #0066cc;
+        }
+        #zombiepeaker { 
+            background-color: #cc0000;
+        }
+        #bingbong { 
+            background-color: #ff9900;
+        }
+        #scoutmaster { 
+            background-color: #663399;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .stats-container {
+                order: 3; /* Se coloca en la posición 3 (después de todo) */
+                flex: none;
+                width: 100%;
+                max-width: 400px;
+                margin: 30px auto 0; /* Margen arriba, centrado */
+                height: auto;
+            }
+            
+            .stats-container img {
+                max-width: 300px;
+            }
+            
+            .right-content {
+                order: 1; /* Mantiene el orden normal */
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .character-controls button {
+                min-width: 120px;
+                max-width: 200px;
+                padding: 12px 8px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .character-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .character-controls button {
+                width: 95%;
+                max-width: 400px;
+                padding: 14px 0;
+            }
+            
+            .character-name {
+                -webkit-text-stroke: 1.5px black;
+                font-size: clamp(20px, 6vw, 36px);
+                bottom: 5px;
+            }
+            
+            .stats-container {
+                max-width: 350px;
+                order: 3; /* Asegurar que esté debajo */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .character-controls button {
+                font-size: 16px;
+                padding: 12px 0;
+                min-width: 100px;
+            }
+            
+            .character-name {
+                font-size: 24px;
+                -webkit-text-stroke: 1px black;
+                bottom: 0;
+            }
+            
+            .character-container {
+                padding: 15px;
+                gap: 20px;
+                min-height: 60vh;
+            }
+            
+            .stats-container {
+                max-width: 300px;
+                padding: 15px;
+                order: 3; /* Asegurar que esté debajo en móviles pequeños */
+            }
+            
+            .stats-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="brand">
+            <a href="index.html" class="icon">
+                <img src="./img/256x256.png" alt="">
+            </a>
+            <a href="index.html" class="logo">
+                <img src="./img/PEAK_Logo_White.webp" alt="">
+            </a>
+        </div>
+
+        <nav class="nav">
+            <li><a href="#">configuración</a></li>
+            <li><a href="personajes.html">personajes</a></li>
+            <li><a href="#">mundo</a></li>
+            <li><a href="#">mide tu partida</a></li>
+        </nav>
+
+        <div class="busqueda">
+            <input type="text" placeholder="Busca">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <a href="#" class="menu">
+            <i class="fa-solid fa-bars"></i>
+        </a>
+    </div>
+</header>
+
+<main>
+
+    <div class="main-content">
+        <!-- CONTENEDOR DE ESTADÍSTICAS (IZQUIERDA en desktop, ABAJO en responsive) -->
+        <div class="stats-container">
+            <h3 class="stats-title">Estadísticas</h3>
+            <img id="statsImg" src="img/PeakerEstadisticas.webp" alt="Estadísticas de Peaker">
+        </div>
+
+        <!-- CONTENEDORES DERECHA -->
+        <div class="right-content">
+            <div class="character-container">
+                <div class="character-image">
+                    <h1 class="character-name" id="characterName">Peaker</h1>
+                    <img id="characterImg" src="img/Peaker.webp" alt="Peaker" class="glow-blue">
+                </div>
+
+                <div class="character-controls">
+                    <button id="peaker" onclick="changeCharacter('peaker')">Peaker</button>
+                    <button id="zombiepeaker" onclick="changeCharacter('zombiepeaker')">Zombiepeaker</button>
+                    <button id="bingbong" onclick="changeCharacter('bingbong')">BingBong</button>
+                    <button id="scoutmaster" onclick="changeCharacter('scoutmaster')">ScoutMaster</button>
+                </div>
+            </div>
+
+            <div class="character-info">
+                <h2 id="infoTitle">Peaker</h2>
+                <p id="infoDescription">
+                    Peaker es el personaje principal, un guerrero equilibrado con habilidades versátiles. 
+                    Combina fuerza y agilidad para adaptarse a cualquier situación de combate. 
+                    Su estilo de lucha es perfecto para principiantes y expertos por igual.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script>
+// Descripciones para cada personaje (cambia estos textos)
+const characterDescriptions = {
+    peaker: "Peaker es el personaje principal, un guerrero equilibrado con habilidades versátiles. Combina fuerza y agilidad para adaptarse a cualquier situación de combate. Su estilo de lucha es perfecto para principiantes y expertos por igual.",
+    zombiepeaker: "Zombiepeaker es un personaje resistente que ha sobrevivido a lo imposible. Con una fuerza sobrehumana y una tenacidad inquebrantable, puede absorber grandes cantidades de daño mientras devasta a sus oponentes con ataques brutales.",
+    bingbong: "BingBong es el personaje más rápido y ágil del juego. Sus movimientos son impredecibles y sus combos pueden desconcertar incluso a los oponentes más experimentados. Perfecto para jugadores que prefieren la velocidad sobre la fuerza bruta.",
+    scoutmaster: "ScoutMaster es un estratega meticuloso que planifica cada movimiento. Con habilidades de control de espacio y ataques a distancia, domina el campo de batalla manteniendo a los enemigos a raya mientras prepara su golpe definitivo."
+};
+
+function changeCharacter(character) {
+    const img = document.getElementById("characterImg");
+    const name = document.getElementById("characterName");
+    const infoTitle = document.getElementById("infoTitle");
+    const infoDescription = document.getElementById("infoDescription");
+    const statsImg = document.getElementById("statsImg");
+    
+    // Primero quitar todas las clases de glow
+    img.classList.remove('glow-blue', 'glow-red', 'glow-orange', 'glow-purple');
+
+    switch(character) {
+        case "peaker":
+            img.src = "img/Peaker.webp";
+            statsImg.src = "img/PeakerEstadisticas.webp";
+            name.textContent = "Peaker";
+            infoTitle.textContent = "Peaker";
+            infoDescription.textContent = characterDescriptions.peaker;
+            img.classList.add('glow-blue');
+            break;
+        case "zombiepeaker":
+            img.src = "img/ZombiePeaker.webp";
+            statsImg.src = "img/ZombiepeakerEstadisticas.webp";
+            name.textContent = "Zombiepeaker";
+            infoTitle.textContent = "Zombiepeaker";
+            infoDescription.textContent = characterDescriptions.zombiepeaker;
+            img.classList.add('glow-red');
+            break;
+        case "bingbong":
+            img.src = "img/bingibongi.webp";
+            statsImg.src = "img/BingBongEstadisticas.webp";
+            name.textContent = "BingBong";
+            infoTitle.textContent = "BingBong";
+            infoDescription.textContent = characterDescriptions.bingbong;
+            img.classList.add('glow-orange');
+            break;
+        case "scoutmaster":
+            img.src = "img/scoutMaster.webp";
+            statsImg.src = "img/ScoutMasterEstadisticas.webp";
+            name.textContent = "ScoutMaster";
+            infoTitle.textContent = "ScoutMaster";
+            infoDescription.textContent = characterDescriptions.scoutmaster;
+            img.classList.add('glow-purple');
+            break;
+    }
+}
+</script>
+
+</body>
+</html>
