@@ -276,7 +276,38 @@ header{
     display: block;
 }
 
-
+/* Reloj */
+.reloj{
+    width: 90%;
+    max-width: 600px;
+    background-image: linear-gradient(rgba(116, 28, 128, 0.8), rgba(0,0,0,0.8)),url("img/PEAK_KeyArt_1080p.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 20px 0;
+    color: #fff;
+    margin: 20px auto 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    border-radius: 16px;
+}
+.reloj h1 {
+    margin-top: 60px;
+    font-size: 64px;
+    font-weight: 300;
+}
+.botonesreloj{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botonesreloj img{
+    width: 50px;
+    margin: 0 20 px;
+    cursor: pointer;
+}
+.botonesreloj img:nth-child(2){
+    width: 80px;
+}
 /* mediaquery */
 @media (max-width: 768px){
     .nav,

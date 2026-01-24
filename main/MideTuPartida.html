@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>PEAK · Mide Tu Partida</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+
+            <div class="brand">
+                <a href="/" class="icon">
+                    <img src="./img/256x256.png" alt="">
+                </a>
+                <a href="/" class="logo">
+                    <img src="./img/PEAK_Logo_White.webp" alt="">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <li><a href="#">configuración</a></li>
+                <li><a href="personajes.html">personajes</a></li>
+                <li><a href="#">mundo</a></li>
+                <li><a href="MideTuPartida.html">mide tu partida</a></li>
+            </nav>
+
+            <div class="busqueda">
+                <input type="text" placeholder="Busca">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <a href="#" class="menu">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+
+        </div>
+    </header>
+
+    <!-- TEXTO DEBAJO -->
+        <section class="hero-title">
+            <h1>¿Quereis saber cual ha sido vuestro tiempo de partida?</h1>
+            <p>pulsa play cuando empieces y prueba a batir tus propios records!</p>
+        </section>
+
+    <!-- RELOJ JAVA -->
+    <div class="reloj">
+        <h1 id="mostrartiempo">00:00:00</h1>
+
+        <div class="botonesreloj">
+            <img src="img/stop.png" onclick= "parar()"alt="Stop">
+            <img src="img/start.png" onclick="empiezareloj()" alt="Start">
+            <img src="img/reset.png" onclick= "reset()" alt="Reset">
+        </div>
+    </div>
+<script>
+    let [seconds, minutes, hours ] = [0,0,0]
+    let mostrartiempo = document.getElementById("mostrartiempo")
+    let timer = null;
+    function reloj (){
+        seconds ++;
+        if (seconds==60){
+            seconds=0;
+            minutes ++;
+            if(minutes==60){
+                minutes=0;
+                hours++;
+            }
+        }
+        let h = hours<10? "0" + hours:hours;
+        let m = minutes<10? "0" + minutes:minutes;
+        let s = seconds<10? "0" + seconds:seconds;
+        mostrartiempo.innerHTML = h + ":" + m +":" + s;
+    }
+    function empiezareloj(){
+        if(timer!=null){
+            clearInterval(timer);
+        }
+        timer=setInterval(reloj, 1000);
+    }
+    function parar(){
+        clearInterval(timer);
+    }
+    function reset(){
+        clearInterval(timer);
+        [seconds, minutes, hours ] = [0,0,0]
+        mostrartiempo.innerHTML = "00:00:00"
+    }
+</script>
+</body>
+</html>
