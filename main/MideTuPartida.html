@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <title>PEAK · Mide Tu Partida</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,15 +16,15 @@
     <!-- HEADER -->
     <header>
         <div class="header-container">
-
-            <div class="brand">
-                <a href="/" class="icon">
-                    <img src="./img/256x256.png" alt="">
-                </a>
-                <a href="/" class="logo">
-                    <img src="./img/PEAK_Logo_White.webp" alt="">
-                </a>
-            </div>
+        <div class="header-container">
+        <div class="brand">
+            <a href="index.html" class="icon">
+                <img src="./img/256x256.png" alt="">
+            </a>
+            <a href="index.html" class="logo">
+                <img src="./img/PEAK_Logo_White.webp" alt="">
+            </a>
+        </div>
 
             <nav class="nav">
                 <li><a href="#">configuración</a></li>
@@ -44,7 +45,6 @@
         </div>
     </header>
 
-    <!-- TEXTO DEBAJO -->
         <section class="hero-title">
             <h1>¿Quereis saber cual ha sido vuestro tiempo de partida?</h1>
             <p>pulsa play cuando empieces y prueba a batir tus propios records!</p>
@@ -94,5 +94,316 @@
         mostrartiempo.innerHTML = "00:00:00"
     }
 </script>
+<div class="section-divider-icon">
+    <img src="img/256x256.png" alt="PEAK">
+</div>
+<!-- barras -->
+<div class="barradeprocentaje">
+<h1 class="progreso">¿Quieres comparar tus resultados con los del resto? </h1>
+<p class="subprogreso">¡Estos son los porcentajes del resto de jugadores!</p>
+    <div class="stats-container">
+        <div class="stat">jugadores que han completado el juego</div>
+        <div class="progress-bar">
+            <div class="progress" data-percent="91"></div>
+            <div class="progress-text">91%</div>
+        </div>
+    </div>
+    <div class="stats-container">
+        <div class="stat">jugadores que han llevado a bing bong a la cima</div>
+        <div class="progress-bar">
+            <div class="progress" data-percent="73"></div>
+            <div class="progress-text">73%</div>
+        </div>
+    </div>
+    <div class="stats-container">
+        <div class="stat">jugadores que han encontrado la estatua dorada</div>
+        <div class="progress-bar">
+            <div class="progress" data-percent="55"></div>
+            <div class="progress-text">55%</div>
+        </div>
+    </div>
+    <div class="stats-container">
+        <div class="stat">jugadores con todos los logros</div>
+        <div class="progress-bar">
+            <div class="progress" data-percent="32"></div>
+            <div class="progress-text">32%</div>
+        </div>
+    </div>
+    <!-- java -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const progressBars = document.querySelectorAll(".progress");
+            progressBars.forEach(bar => {
+                const percent = bar.getAttribute("data-percent");
+                bar.style.width = percent + "%";
+            });
+        });
+    </script>
+    <div class="section-divider-icon">
+    <img src="img/256x256.png" alt="PEAK">
+</div>
+    <!-- logros -->
+    <section class="insignias-section">
+    <h2 class="insignias-title">Insignias de PEAK</h2>
+    <p class="insignias-subtitulo"> haz hover sobre ellas para saber más!</p>
+
+    <div class="carrusel">
+        <div class="grupo">
+
+            <div class="insignia">
+                <img src="img/aeronautica.png" alt="Aerodinámica">
+                <h3>Aerodinámica</h3>
+                <p>Alcanza el vuelo</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/alpinista.png" alt="Alpinista">
+                <h3>Alpinista</h3>
+                <p>Escala más allá de la ZONA ALPINA</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/arbolista.png" alt="Arbolista">
+                <h3>Arbolista</h3>
+                <p>Escala un árbol gigante</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/astronomia.png" alt="Astronomía">
+                <h3>Astronomía</h3>
+                <p>Mira un poco demasiado de cerca el ardiente sol</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/bordador.png" alt="Bordador">
+                <h3>Bordador</h3>
+                <p>Ten muchos cactus pegados a ti</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/buscatesoros.png" alt="Buscatesoros">
+                <h3>Buscatesoros</h3>
+                <p>Escala más allá de la COSTA.</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/esoterismo.png" alt="Esoterismo">
+                <h3>Esoterismo</h3>
+                <p>Para este logro, necesitas conseguir un objeto místico</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/frescura.png" alt="Frescura">
+                <h3>Frescura</h3>
+                <p>Escala más allá de la MESA sin superar nunca el 10 % de calor.</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/ingenio.png" alt="Ingenio">
+                <h3>Ingenio</h3>
+                <p>Ríndete a tu hambre</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/megaentomología.png" alt="Megaentomología">
+                <h3>Megaentomología</h3>
+                <p>Sobrevive a un ataque de hormigón león</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/mentoria.png" alt="Mentoría">
+                <h3>Mentoría</h3>
+                <p>¡NUNCA ABANDONES A UN AMIGO EN APUROS!</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/nómada.png" alt="Nómada">
+                <h3>Nómada</h3>
+                <p>Escala más allá de la MESA.</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/osadía.png" alt="Osadía">
+                <h3>Osadía</h3>
+                <p>Dispara a través del cañón de la MESA en un cañón de explorador</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/participacion.png" alt="Participación">
+                <h3>Participación</h3>
+                <p>Este logro se desbloquea en multijugador tan pronto como cualquier jugador, excepto tú, logre salir de la isla.</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/pionero.png" alt="Pionero">
+                <h3>Pionero</h3>
+                <p>Escala más allá de los TRÓPICOS</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/preparación para emergencias.png" alt="Emergencias">
+                <h3>Emergencias</h3>
+                <p>Sana a un amigo inconsciente con un objeto para salvarlo de la muerte</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/resistencia.png" alt="Resistencia">
+                <h3>Resistencia</h3>
+                <p>escala 50 metros sin tocar ninguna superficie plana</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/serenata animal.png" alt="Serenata animal">
+                <h3>Serenata animal</h3>
+                <p>toca la corneta frente a una capibara</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/volcanología.png" alt="Volcanología">
+                <h3>Volcanología</h3>
+                <p>Escala más allá de la CALDERA</p>
+            </div>
+
+        </div>
+        <div class="grupo" aria-hidden="true">
+           <div class="insignia">
+                <img src="img/aeronautica.png" alt="Aerodinámica">
+                <h3>Aerodinámica</h3>
+                <p>Alcanza el vuelo</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/alpinista.png" alt="Alpinista">
+                <h3>Alpinista</h3>
+                <p>Escala más allá de la ZONA ALPINA</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/arbolista.png" alt="Arbolista">
+                <h3>Arbolista</h3>
+                <p>Escala un árbol gigante</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/astronomia.png" alt="Astronomía">
+                <h3>Astronomía</h3>
+                <p>Mira un poco demasiado de cerca el ardiente sol</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/bordador.png" alt="Bordador">
+                <h3>Bordador</h3>
+                <p>Ten muchos cactus pegados a ti</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/buscatesoros.png" alt="Buscatesoros">
+                <h3>Buscatesoros</h3>
+                <p>Escala más allá de la COSTA.</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/esoterismo.png" alt="Esoterismo">
+                <h3>Esoterismo</h3>
+                <p>Para este logro, necesitas conseguir un objeto místico</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/frescura.png" alt="Frescura">
+                <h3>Frescura</h3>
+                <p>Escala más allá de la MESA sin superar nunca el 10 % de calor.</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/ingenio.png" alt="Ingenio">
+                <h3>Ingenio</h3>
+                <p>Ríndete a tu hambre</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/megaentomología.png" alt="Megaentomología">
+                <h3>Megaentomología</h3>
+                <p>Sobrevive a un ataque de hormigón león</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/mentoria.png" alt="Mentoría">
+                <h3>Mentoría</h3>
+                <p>¡NUNCA ABANDONES A UN AMIGO EN APUROS!</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/nómada.png" alt="Nómada">
+                <h3>Nómada</h3>
+                <p>Escala más allá de la MESA.</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/osadía.png" alt="Osadía">
+                <h3>Osadía</h3>
+                <p>Dispara a través del cañón de la MESA en un cañón de explorador</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/participacion.png" alt="Participación">
+                <h3>Participación</h3>
+                <p>Este logro se desbloquea en multijugador tan pronto como cualquier jugador, excepto tú, logre salir de la isla.</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/pionero.png" alt="Pionero">
+                <h3>Pionero</h3>
+                <p>Escala más allá de los TRÓPICOS</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/preparación para emergencias.png" alt="Emergencias">
+                <h3>Emergencias</h3>
+                <p>Sana a un amigo inconsciente con un objeto para salvarlo de la muerte</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/resistencia.png" alt="Resistencia">
+                <h3>Resistencia</h3>
+                <p>escala 50 metros sin tocar ninguna superficie plana</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/serenata animal.png" alt="Serenata animal">
+                <h3>Serenata animal</h3>
+                <p>toca la corneta frente a una capibara</p>
+            </div>
+
+            <div class="insignia">
+                <img src="img/volcanología.png" alt="Volcanología">
+                <h3>Volcanología</h3>
+                <p>Escala más allá de la CALDERA</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+</div>
 </body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-info">
+            <p><i class="fa-regular fa-copyright"></i> Landfall</p>
+            <a href="mailto:Info@landfall.se">Info@landfall.se</a>
+        </div>
+        <div class="footer-separator"></div>
+        <div class="footer-socials">
+            <a href="mailto:Info@landfall.se" class="social-icon">
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+            <a href="https://www.instagram.com/landfall_official/?hl=es" class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://x.com/LandfallGames" class="social-icon">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+        </div>
+    </div>
+</footer>
 </html>
