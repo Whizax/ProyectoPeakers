@@ -29,7 +29,7 @@
             <nav class="nav">
                 <li><a href="Configuracion.html">configuración</a></li>
                 <li><a href="personajes.html">personajes</a></li>
-                <li><a href="#">mundo</a></li>
+                <li><a href="mundo.html">mundo</a></li>
                 <li><a href="MideTuPartida.html">mide tu partida</a></li>
             </nav>
 
@@ -43,6 +43,31 @@
             </a>
 
         </div>
+
     </header>
 
+    <div class="volume-control">
+    <div class="volume-label">Volumen</div>
+    <div class="slider-cont">
+        <div class="slider">
+            <input type="range" min="0" max="100" value="50" class="slider-input">
+            <progress min="0" max="100" value="50" class="slider-progress"></progress>
+        </div>
+        <div class="sliderValue">50</div>
+    </div>
+</div>
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const slider = document.querySelector(".slider input[type='range']");
+        const progressBar = document.querySelector(".slider progress");
+        const sliderValue = document.querySelector(".sliderValue");
+        
+        if (slider && progressBar && sliderValue) {
+            slider.addEventListener("input", function() {
+                progressBar.value = this.value;
+                sliderValue.textContent = this.value;
+            });
+        }
+    });
+</script>
 </body>

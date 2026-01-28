@@ -673,6 +673,97 @@ section,
     }
 }
 
+/*= APARTADO DE STYLE DE LA PÁGINA DE CONFIGURACION =*/
+
+.volume-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto;
+    width: fit-content;
+}
+
+.volume-label {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.slider-cont {
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 5px 25px 25px 5px;
+    display: flex;
+    align-items: center;
+}
+
+.slider {
+    position: relative;
+    width: 200px;
+    height: 20px;
+}
+
+.slider input {
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 212px;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.slider input::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #8400ac;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.slider input::-moz-range-thumb {
+    appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #8400ac;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none; 
+}
+
+.slider progress {
+    width: 200px;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slider progress::-webkit-progress-bar {
+    background-color: #f0f0f0;
+}
+
+.slider progress::-webkit-progress-value {
+    background-color: #8400ac;
+}
 
 
 
