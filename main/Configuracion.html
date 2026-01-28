@@ -46,28 +46,64 @@
 
     </header>
 
-    <div class="volume-control">
-    <div class="volume-label">Volumen</div>
-    <div class="slider-cont">
-        <div class="slider">
-            <input type="range" min="0" max="100" value="50" class="slider-input">
-            <progress min="0" max="100" value="50" class="slider-progress"></progress>
+<div class="volume-control">
+        <!-- Slider 1: Volumen -->
+        <div class="slider-cont">
+            <div class="volume-label">Volumen</div>
+            <div class="slider">
+                <input type="range" min="0" max="100" value="50" class="slider-input" data-id="volume">
+                <progress min="0" max="100" value="50" class="slider-progress"></progress>
+            </div>
+            <div class="sliderValue" data-id="volume">50</div>
         </div>
-        <div class="sliderValue">50</div>
-    </div>
-</div>
-   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const slider = document.querySelector(".slider input[type='range']");
-        const progressBar = document.querySelector(".slider progress");
-        const sliderValue = document.querySelector(".sliderValue");
         
-        if (slider && progressBar && sliderValue) {
-            slider.addEventListener("input", function() {
-                progressBar.value = this.value;
-                sliderValue.textContent = this.value;
+        <!-- Slider 2: Field of View -->
+        <div class="slider-cont">
+            <div class="volume-label">Field of View</div>
+            <div class="slider">
+                <input type="range" min="0" max="100" value="50" class="slider-input" data-id="volume">
+                <progress min="0" max="100" value="50" class="slider-progress"></progress>
+            </div>
+            <div class="sliderValue" data-id="volume">50</div>
+        </div>
+        
+        <!-- Slider 3: Sensibilidad del Ratón -->
+        <div class="slider-cont">
+            <div class="volume-label">Sensibilidad del Ratón</div>
+            <div class="slider">
+                <input type="range" min="0.1" max="10.0" step="0.1" value="2.0" class="slider-input" data-id="sensitivity">
+                <progress min="0.1" max="10.0" value="2.0" class="slider-progress"></progress>
+            </div>
+            <div class="sliderValue" data-id="sensitivity">2.0</div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            const sliders = document.querySelectorAll(".slider-input");
+            
+            sliders.forEach(slider => {
+                const sliderId = slider.getAttribute("data-id");
+                const progressBar = document.querySelector(`.slider-progress`);
+                const sliderValue = document.querySelector(`.sliderValue[data-id="${sliderId}"]`);
+                
+                if (slider && progressBar && sliderValue) {
+                    
+                    progressBar.value = slider.value;
+                    sliderValue.textContent = parseFloat(slider.value).toFixed(1);
+                    
+                    
+                    slider.addEventListener("input", function() {
+                        const currentProgressBar = this.closest('.slider').querySelector('.slider-progress');
+                        const currentValue = this.closest('.slider-cont').querySelector('.sliderValue');
+                        
+                        currentProgressBar.value = this.value;
+                        currentValue.textContent = parseFloat(this.value).toFixed(1);
+                    });
+                }
             });
-        }
-    });
-</script>
+        });
+    </script>
+
 </body>
