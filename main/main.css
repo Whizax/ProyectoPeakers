@@ -432,20 +432,34 @@ footer {
     font-size: 64px;
     font-weight: 300;
 }
+/* ===== BOTONES DEL RELOJ ===== */
 .botonesreloj{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 24px; /* separación entre botones */
 }
+
 .botonesreloj img{
     width: 50px;
-    margin: 0 20 px;
     cursor: pointer;
+    transition: transform 0.25s ease, filter 0.25s ease;
 }
+
+/* botón central (play) más grande */
 .botonesreloj img:nth-child(2){
     width: 80px;
 }
 
+/* efecto hover */
+.botonesreloj img:hover{
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px rgba(180,112,201,0.7));
+}
+.botonesreloj img:hover{
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px rgba(180,112,201,0.7));
+}
 /* stats */
 .subprogreso{
     color: #531a94;
@@ -510,9 +524,12 @@ color: white;
     margin-bottom: 100px;
 }
 
+/* ===== CARRUSEL DE INSIGNIAS ===== */
 .carrusel{
     display: flex;
-    width: max-content;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     overflow: hidden;
     position: relative;
 }
@@ -522,11 +539,29 @@ color: white;
     gap: 24px;
     padding: 20px 0;
     animation: slide 35s linear infinite;
+    will-change: transform;
     padding-right: 1em;
 }
 
 .carrusel:hover .grupo{
     animation-play-state: paused;
+}
+
+/* animación continua */
+@keyframes slide{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-50%);
+    }
+}
+
+/* responsive: carrusel más estrecho en móvil */
+@media (max-width: 768px){
+    .carrusel{
+        max-width: 95%;
+    }
 }
 
 .insignia{
@@ -622,6 +657,12 @@ color: white;
     width: 48px;
     height: 48px;
     object-fit: contain;
+}
+.footer-socials a,
+.footer-socials a:hover,
+.footer-socials a:visited,
+.footer-socials a:focus{
+    text-decoration: none;
 }
 
 /* ANIMACIÓN */
