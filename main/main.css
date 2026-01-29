@@ -862,7 +862,7 @@ section,
     padding-bottom: 60px;
 }
 
-/* ===== CONTENEDOR PRINCIPAL ===== */
+
 .pagina-personajes .main-content {
     display: flex;
     width: min(1400px, 98vw);
@@ -871,7 +871,7 @@ section,
     align-items: stretch;
 }
 
-/* ===== CONTENEDOR DE ESTADÍSTICAS (IZQUIERDA) ===== */
+
 .pagina-personajes .stats-container {
     flex: 0 0 380px;
     border: 10px solid #8400ac;
@@ -893,7 +893,7 @@ section,
     font-weight: bold;
 }
 
-/* ===== BARRAS DE PROGRESO ===== */
+
 .pagina-personajes .stats-bars {
     width: 100%;
     display: flex;
@@ -942,7 +942,7 @@ section,
     transition: width 0.5s ease-in-out;
 }
 
-/* Colores específicos para cada barra */
+
 .pagina-personajes #health-bar .progress {
     background: linear-gradient(90deg, #ff4d4d, #ff9999);
 }
@@ -966,7 +966,7 @@ section,
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* ===== CONTENEDORES DERECHA ===== */
+
 .pagina-personajes .right-content {
     flex: 1;
     display: flex;
@@ -991,7 +991,7 @@ section,
     max-height: 700px;
 }
 
-/* FONDO CON OVERLAY */
+
 .pagina-personajes .character-container::before {
     content: '';
     position: absolute;
@@ -1003,7 +1003,6 @@ section,
     z-index: 0;
 }
 
-/* OVERLAY BLANCO SEMI-TRANSPARENTE */
 .pagina-personajes .character-container::after {
     content: '';
     position: absolute;
@@ -1035,7 +1034,7 @@ section,
     }
 }
 
-/* ===== IMAGEN ===== */
+
 .pagina-personajes .character-image {
     flex: 1;
     display: flex;
@@ -1059,7 +1058,7 @@ section,
     object-fit: contain;
 }
 
-/* ESTILOS PARA DIFERENTES COLORES DE GLOW */
+
 .pagina-personajes .glow-blue {
     animation: glow-blue 2s infinite !important;
 }
@@ -1076,7 +1075,7 @@ section,
     animation: glow-purple 2s infinite !important;
 }
 
-/* ANIMACIONES PARA CADA COLOR */
+
 @keyframes glow-blue {
     0%, 100% { 
         filter: drop-shadow(0 0 15px rgba(0, 174, 255, 0.8)) 
@@ -1129,7 +1128,7 @@ section,
     }
 }
 
-/* ===== NOMBRE ===== */
+
 .pagina-personajes .character-name {
     position: absolute;
     bottom: 20px;
@@ -1151,7 +1150,7 @@ section,
         0 0 10px rgba(0, 0, 0, 0.7);
 }
 
-/* ===== CONTROLES MEJORADOS - TEXTO ADAPTATIVO ===== */
+
 .pagina-personajes .character-controls {
     display: flex;
     flex-wrap: wrap;
@@ -1195,7 +1194,7 @@ section,
     border-color: rgba(255, 255, 255, 0.6);
 }
 
-/* Estilos específicos para textos largos */
+
 .pagina-personajes #zombiepeaker {
     font-size: clamp(13px, 1.6vw, 22px);
     letter-spacing: -0.4px;
@@ -1207,7 +1206,7 @@ section,
     letter-spacing: -0.4px;
 }
 
-/* COLORES FIJOS SIN GRADIENTE */
+
 .pagina-personajes #peaker { 
     background-color: #0066cc;
 }
@@ -1221,7 +1220,7 @@ section,
     background-color: #663399;
 }
 
-/* ===== RESPONSIVE MEJORADO ===== */
+
 @media (max-width: 1200px) {
     .pagina-personajes .main-content {
         flex-direction: column;
@@ -1492,7 +1491,7 @@ section,
     opacity: 0;
 }
 
-.mapaimg .content{
+.mapaimg .content {
     position: absolute;
     top: 50%;
     left: 100px;
@@ -1502,6 +1501,13 @@ section,
     transform: translate(0, -50%);
     font-family: system-ui;
     display: none;
+
+    background: rgba(0, 0, 0, 0.3);  
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4); 
+    backdrop-filter: blur(8px) saturate(180%); 
+    -webkit-backdrop-filter: blur(8px) saturate(180%); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
 }
 
 
@@ -1516,6 +1522,7 @@ section,
     font-weight: bold;
     opacity: 0;
     animation: animate 1s ease-in-out 1 forwards;
+    margin-left: 20px;
     
 }
 
@@ -1524,7 +1531,7 @@ section,
     margin-bottom: 20px;
     opacity: 0;
     animation: animate 1s ease-in-out 0.3s 1 forwards;
-    
+    margin-left: 20px;
 
 }
 
