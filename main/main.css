@@ -316,21 +316,53 @@ body { font-family: sans-serif; }
   background: #EEE;
 }
 
-.carousel-cell {
-  width: 66%;
-  height: 500px;
-  margin-right: 10px;
-  background: #8C8;
-  counter-increment: gallery-cell;
+.carousel-cell{
+    position: relative;
+    width: 66%;
+    height: 500px;
+    margin-right: 10px;
+    overflow: hidden;
+    cursor: grab;
 }
 
-.carousel-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 500px;
-  font-size: 80px;
-  color: white;
+.carousel-cell img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* círculo */
+.drag-indicator{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    color: #fff;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(6px);
+
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.carousel-cell:hover .drag-indicator{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 @media (max-width: 768px) {
