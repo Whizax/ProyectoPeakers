@@ -42,52 +42,64 @@
 </header>
 
 <main>
-
     <div class="main-content">
-        <!-- CONTENEDOR DE ESTADÍSTICAS -->
-        <div class="stats-container">
-            <h3 class="stats-title">Estadísticas</h3>
-            <div class="stats-bars">
-                <!-- Barra de VIDA -->
-                <div class="stat-bar-container" id="health-bar">
-                    <div class="stat-label">
-                        <span class="stat-name">Vida</span>
-                        <span class="stat-value" id="health-value">85%</span>
+        <!-- COLUMNA IZQUIERDA: Estadísticas + Descripción -->
+        <div class="left-column">
+            <!-- CONTENEDOR DE ESTADÍSTICAS -->
+            <div class="stats-container">
+                <h3 class="stats-title">Estadísticas</h3>
+                <div class="stats-bars">
+                    <!-- Barra de VIDA -->
+                    <div class="stat-bar-container" id="health-bar">
+                        <div class="stat-label">
+                            <span class="stat-name">Vida</span>
+                            <span class="stat-value" id="health-value">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-percent="85"></div>
+                            <div class="progress-text">85%</div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress" data-percent="85"></div>
-                        <div class="progress-text">85%</div>
+                    
+                    <!-- Barra de ESTAMINA -->
+                    <div class="stat-bar-container" id="stamina-bar">
+                        <div class="stat-label">
+                            <span class="stat-name">Estamina</span>
+                            <span class="stat-value" id="stamina-value">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-percent="70"></div>
+                            <div class="progress-text">70%</div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Barra de ESTAMINA -->
-                <div class="stat-bar-container" id="stamina-bar">
-                    <div class="stat-label">
-                        <span class="stat-name">Estamina</span>
-                        <span class="stat-value" id="stamina-value">70%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" data-percent="70"></div>
-                        <div class="progress-text">70%</div>
-                    </div>
-                </div>
-                
-                <!-- Barra de VELOCIDAD -->
-                <div class="stat-bar-container" id="speed-bar">
-                    <div class="stat-label">
-                        <span class="stat-name">Velocidad</span>
-                        <span class="stat-value" id="speed-value">90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" data-percent="90"></div>
-                        <div class="progress-text">90%</div>
+                    
+                    <!-- Barra de VELOCIDAD -->
+                    <div class="stat-bar-container" id="speed-bar">
+                        <div class="stat-label">
+                            <span class="stat-name">Velocidad</span>
+                            <span class="stat-value" id="speed-value">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-percent="90"></div>
+                            <div class="progress-text">90%</div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- CONTENEDOR DE DESCRIPCIÓN -->
+            <div class="character-info">
+                <h2 id="infoTitle">Peaker</h2>
+                <p id="infoDescription">
+                    El escalador perfectamente equilibrado. Peaker combina técnicas de escalada clásica con movimientos modernos,
+                    ideal para enfrentar cualquier superficie montañosa. Su enfoque metódico y resistencia lo convierten en la
+                    elección perfecta tanto para principiantes como para expertos que buscan alcanzar nuevas alturas.
+                </p>
+            </div>
         </div>
 
-        <!-- CONTENEDORES DERECHA -->
-        <div class="right-content">
+        <!-- COLUMNA DERECHA: Personaje grande -->
+        <div class="right-column">
             <div class="character-container">
                 <div class="character-image">
                     <h1 class="character-name" id="characterName">Peaker</h1>
@@ -101,18 +113,8 @@
                     <button id="scoutmaster" onclick="changeCharacter('scoutmaster')">ScoutMaster</button>
                 </div>
             </div>
-
-            <div class="character-info">
-                <h2 id="infoTitle">Peaker</h2>
-                <p id="infoDescription">
-                    El escalador perfectamente equilibrado. Peaker combina técnicas de escalada clásica con movimientos modernos,
-                    ideal para enfrentar cualquier superficie montañosa. Su enfoque metódico y resistencia lo convierten en la
-                    elección perfecta tanto para principiantes como para expertos que buscan alcanzar nuevas alturas.
-                </p>
-            </div>
         </div>
     </div>
-
 </main>
 
 <footer>
@@ -139,9 +141,9 @@
 <script>
 const characterDescriptions = {
     peaker: "El escalador perfectamente equilibrado. Peaker combina técnicas de escalada clásica con movimientos modernos, ideal para enfrentar cualquier superficie montañosa.",
-    zombiepeaker: "Una versión renacida del escalador clásico, Zombiepeaker ha superado límites que parecían imposibles. Con una resistencia sobrehumana y agarres inquebrantables, puede escalar durante horas sin descanso. Su tenacidad le permite superar los terrenos más hostiles y recuperarse de caídas que acabarían con cualquier otro escalador.",
+    zombiepeaker: "Una versión renacida del escalador clásico, Zombiepeaker ha superado límites que parecían imposibles. Con una resistencia sobrehumana y agarres inquebrantables, puede escalar durante horas sin descanso.",
     bingbong: "El maestro de la velocidad y la agilidad vertical. BingBong redefine lo que significa escalar rápido, con movimientos fluidos y transiciones impredecibles que dejan atónitos a los espectadores. El mejor explorador de todos los tiempos...",
-    scoutmaster: "Un terrible monstruo explorador que no solo acecha a quienes encuentra en su camino, sino que estudia sus movimientos, analiza sus patrones y planea meticulosamente cada ataque. Su instinto depredador se combina con una inteligencia tétrica que le permite anticipar los intentos de escape de sus víctimas."
+    scoutmaster: "Un terrible monstruo explorador que no solo acecha a quienes encuentra en su camino, sino que estudia sus movimientos, analiza sus patrones y planea meticulosamente cada ataque."
 };
 
 const characterStats = {
@@ -151,26 +153,21 @@ const characterStats = {
     scoutmaster: { health: 75, stamina: 85, speed: 75 }
 };
 
-// Función para actualizar las barras de progreso
 function updateStatsBars(character) {
     const stats = characterStats[character];
     
-    // Actualizar barras
     const healthBar = document.querySelector('#health-bar .progress');
     const staminaBar = document.querySelector('#stamina-bar .progress');
     const speedBar = document.querySelector('#speed-bar .progress');
     
-    // Actualizar valores
     const healthValue = document.querySelector('#health-value');
     const staminaValue = document.querySelector('#stamina-value');
     const speedValue = document.querySelector('#speed-value');
     
-    // Actualizar textos de porcentaje
     const healthText = document.querySelector('#health-bar .progress-text');
     const staminaText = document.querySelector('#stamina-bar .progress-text');
     const speedText = document.querySelector('#speed-bar .progress-text');
     
-    // Aplicar cambios con animación
     setTimeout(() => {
         healthBar.style.width = stats.health + '%';
         staminaBar.style.width = stats.stamina + '%';
@@ -188,7 +185,6 @@ function updateStatsBars(character) {
         staminaText.textContent = stats.stamina + '%';
         speedText.textContent = stats.speed + '%';
         
-        // Efecto especial para BingBong (todo 100% porque es el mejor)
         if (character === 'bingbong') {
             healthBar.style.boxShadow = '0 0 15px rgba(255, 165, 0, 0.7)';
             staminaBar.style.boxShadow = '0 0 15px rgba(255, 165, 0, 0.7)';
@@ -201,7 +197,6 @@ function updateStatsBars(character) {
     }, 100);
 }
 
-// Inicializar barras
 document.addEventListener("DOMContentLoaded", function() {
     const progressBars = document.querySelectorAll(".progress");
     progressBars.forEach(bar => {
@@ -255,5 +250,5 @@ function changeCharacter(character) {
 }
 </script>
 
-</body class="pagina-personajes">
+</body>
 </html>

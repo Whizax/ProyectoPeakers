@@ -881,7 +881,7 @@ section,
 
   /*= APARTADO DE STYLE DE LA PÁGINA DE PERSONAJES =*/
 
-
+/* ESTRUCTURA GENERAL */
 .pagina-personajes body {
     display: flex;
     flex-direction: column;
@@ -894,47 +894,74 @@ section,
     padding-bottom: 60px;
 }
 
-
+/* CONTENEDOR PRINCIPAL */
 .pagina-personajes .main-content {
     display: flex;
     width: min(1400px, 98vw);
     margin: 50px auto;
     gap: 40px;
     align-items: stretch;
+    height: 750px;
 }
 
+/* COLUMNA IZQUIERDA */
+.pagina-personajes .left-column {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
 
+/* COLUMNA DERECHA */
+.pagina-personajes .right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* CONTENEDOR DE ESTADÍSTICAS */
 .pagina-personajes .stats-container {
-    flex: 0 0 380px;
     border: 10px solid #8400ac;
     border-radius: 20px;
     overflow: hidden;
     background: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 25px;
-    height: calc(100% - 80px);
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 300px;
+    height: auto;
 }
 
 .pagina-personajes .stats-title {
     color: #333;
     font-size: 28px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
     font-weight: bold;
+    flex-shrink: 0;
 }
 
-
+/* BARRAS DE ESTADÍSTICAS */
 .pagina-personajes .stats-bars {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
+    flex: 1;
+    justify-content: space-around;
 }
 
 .pagina-personajes .stat-bar-container {
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80px;
 }
 
 .pagina-personajes .stat-label {
@@ -944,6 +971,7 @@ section,
     font-size: 18px;
     color: #333;
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 .pagina-personajes .stat-name {
@@ -959,22 +987,23 @@ section,
 
 .pagina-personajes .progress-bar {
     width: 100%;
-    height: 25px;
+    height: 30px;
     background: #e0e0e0;
-    border-radius: 12px;
+    border-radius: 15px;
     overflow: hidden;
     position: relative;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
 }
 
 .pagina-personajes .progress {
     height: 100%;
-    border-radius: 12px;
+    border-radius: 15px;
     position: relative;
     transition: width 0.5s ease-in-out;
 }
 
-
+/* COLORES DE BARRAS */
 .pagina-personajes #health-bar .progress {
     background: linear-gradient(90deg, #ff4d4d, #ff9999);
 }
@@ -998,14 +1027,45 @@ section,
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-
-.pagina-personajes .right-content {
+/* CONTENEDOR DE DESCRIPCIÓN */
+.pagina-personajes .character-info {
+    border: 10px solid #8400ac;
+    border-radius: 20px;
+    text-align: center;
+    padding: 30px;
+    background: url("images/background.jpg");
+    background-size: 150px 150px;
+    animation: scroll-bg 5s linear infinite;
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    justify-content: center;
+    min-height: 200px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
+.pagina-personajes .character-info h2 {
+    color: black;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.pagina-personajes .character-info p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: black;
+}
+
+@keyframes scroll-bg {
+    to {
+        background-position: -150px -150px;
+    }
+}
+
+/* CONTENEDOR DE PERSONAJE */
 .pagina-personajes .character-container {
     width: 100%;
     border: 10px solid #8400ac;
@@ -1013,17 +1073,16 @@ section,
     text-align: center;
     overflow: hidden;
     position: relative;
-    height: 700px;
+    height: 100%;
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 40px;
     margin: 0;
-    max-height: 700px;
 }
 
-
+/* FONDO DEL CONTENEDOR */
 .pagina-personajes .character-container::before {
     content: '';
     position: absolute;
@@ -1035,6 +1094,7 @@ section,
     z-index: 0;
 }
 
+/* OVERLAY BLANCO */
 .pagina-personajes .character-container::after {
     content: '';
     position: absolute;
@@ -1046,27 +1106,7 @@ section,
     z-index: 1;
 }
 
-.pagina-personajes .character-info {
-    width: 100%;
-    background: url("images/background.jpg");
-    background-size: 150px 150px;
-    animation: scroll-bg 5s linear infinite;
-    border: 10px solid #8400ac;
-    border-radius: 20px;
-    text-align: center;
-    padding: 30px;
-    margin: 0;
-    height: auto;
-    min-height: 200px;
-}
-
-@keyframes scroll-bg {
-    to {
-        background-position: -150px -150px;
-    }
-}
-
-
+/* IMAGEN DEL PERSONAJE */
 .pagina-personajes .character-image {
     flex: 1;
     display: flex;
@@ -1075,10 +1115,8 @@ section,
     align-items: center;
     position: relative;
     z-index: 2;
-    height: 450px;
-    min-height: 450px;
-    max-height: 450px;
     overflow: hidden;
+    min-height: 450px;
 }
 
 .pagina-personajes .character-image img {
@@ -1090,7 +1128,7 @@ section,
     object-fit: contain;
 }
 
-
+/* EFECTOS GLOW */
 .pagina-personajes .glow-blue {
     animation: glow-blue 2s infinite !important;
 }
@@ -1107,7 +1145,7 @@ section,
     animation: glow-purple 2s infinite !important;
 }
 
-
+/* ANIMACIONES GLOW */
 @keyframes glow-blue {
     0%, 100% { 
         filter: drop-shadow(0 0 15px rgba(0, 174, 255, 0.8)) 
@@ -1160,7 +1198,7 @@ section,
     }
 }
 
-
+/* NOMBRE DEL PERSONAJE */
 .pagina-personajes .character-name {
     position: absolute;
     bottom: 20px;
@@ -1182,7 +1220,7 @@ section,
         0 0 10px rgba(0, 0, 0, 0.7);
 }
 
-
+/* CONTROLES DE PERSONAJE */
 .pagina-personajes .character-controls {
     display: flex;
     flex-wrap: wrap;
@@ -1226,7 +1264,7 @@ section,
     border-color: rgba(255, 255, 255, 0.6);
 }
 
-
+/* ESTILOS ESPECÍFICOS DE BOTONES */
 .pagina-personajes #zombiepeaker {
     font-size: clamp(13px, 1.6vw, 22px);
     letter-spacing: -0.4px;
@@ -1238,7 +1276,7 @@ section,
     letter-spacing: -0.4px;
 }
 
-
+/* COLORES DE BOTONES */
 .pagina-personajes #peaker { 
     background-color: #0066cc;
 }
@@ -1252,35 +1290,52 @@ section,
     background-color: #663399;
 }
 
+/* FOOTER FIJO */
+.pagina-personajes {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+.pagina-personajes .content-wrapper {
+    flex: 1 0 auto;
+}
+
+/* RESPONSIVE - 1200px */
 @media (max-width: 1200px) {
     .pagina-personajes .main-content {
         flex-direction: column;
+        height: auto;
+    }
+    
+    .pagina-personajes .left-column {
+        flex: none;
+        width: 100%;
+        flex-direction: row;
+        gap: 30px;
+        order: 2;
+        margin-top: 40px;
+    }
+    
+    .pagina-personajes .right-column {
+        order: 1;
+        height: 650px;
     }
     
     .pagina-personajes .stats-container {
-        order: 3;
-        flex: none;
-        width: 100%;
-        max-width: 500px;
-        margin: 50px auto 0;
+        flex: 1;
         height: auto;
-        padding: 30px;
+        min-height: 280px;
     }
     
-    .pagina-personajes .right-content {
-        order: 1;
+    .pagina-personajes .character-info {
+        flex: 1;
+        height: auto;
+        min-height: 200px;
     }
     
     .pagina-personajes .character-container {
-        height: 650px;
-        max-height: 650px;
-    }
-    
-    .pagina-personajes .character-image {
-        height: 400px;
-        min-height: 400px;
-        max-height: 400px;
+        height: 100%;
     }
     
     .pagina-personajes .character-controls {
@@ -1310,27 +1365,37 @@ section,
     }
     
     .pagina-personajes .progress-bar {
-        height: 22px;
+        height: 26px;
     }
 }
 
+/* RESPONSIVE - 768px */
 @media (max-width: 768px) {
-    .pagina-personajes .stats-container {
-        max-width: 450px;
-        padding: 25px;
+    .pagina-personajes .left-column {
+        flex-direction: column;
+        gap: 15px;
     }
     
-    .pagina-personajes .character-container {
+    .pagina-personajes .right-column {
         height: 600px;
-        max-height: 600px;
-        gap: 30px;
-        padding: 25px;
     }
     
-    .pagina-personajes .character-image {
-        height: 350px;
-        min-height: 350px;
-        max-height: 350px;
+    .pagina-personajes .stats-container {
+        min-height: 260px;
+    }
+    
+    .pagina-personajes .character-info {
+        min-height: 180px;
+    }
+    
+    .pagina-personajes .character-info h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .pagina-personajes .character-info p {
+        font-size: 16px;
+        line-height: 1.4;
     }
     
     .pagina-personajes .character-controls {
@@ -1371,7 +1436,7 @@ section,
     }
     
     .pagina-personajes .progress-bar {
-        height: 20px;
+        height: 24px;
     }
     
     .pagina-personajes .progress-text {
@@ -1379,6 +1444,7 @@ section,
     }
 }
 
+/* RESPONSIVE - 640px */
 @media (max-width: 640px) {
     .pagina-personajes .character-controls {
         flex-direction: column;
@@ -1405,25 +1471,39 @@ section,
         font-size: 15px;
         letter-spacing: normal;
     }
+    
+    .pagina-personajes .character-info h2 {
+        font-size: 20px;
+    }
+    
+    .pagina-personajes .character-info p {
+        font-size: 14px;
+    }
 }
 
+/* RESPONSIVE - 480px */
 @media (max-width: 480px) {
-    .pagina-personajes .stats-container {
-        max-width: 380px;
-        padding: 20px;
-    }
-    
-    .pagina-personajes .character-container {
-        padding: 20px;
-        gap: 25px;
+    .pagina-personajes .right-column {
         height: 550px;
-        max-height: 550px;
     }
     
-    .pagina-personajes .character-image {
-        height: 300px;
-        min-height: 300px;
-        max-height: 300px;
+    .pagina-personajes .stats-container {
+        min-height: 240px;
+    }
+    
+    .pagina-personajes .character-info {
+        min-height: 160px;
+        padding: 20px 15px;
+    }
+    
+    .pagina-personajes .character-info h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .pagina-personajes .character-info p {
+        font-size: 13px;
+        line-height: 1.3;
     }
     
     .pagina-personajes .character-controls button {
@@ -1449,7 +1529,7 @@ section,
     
     .pagina-personajes .stats-title {
         font-size: 24px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     
     .pagina-personajes .stat-label {
@@ -1457,7 +1537,7 @@ section,
     }
     
     .pagina-personajes .progress-bar {
-        height: 18px;
+        height: 22px;
     }
     
     .pagina-personajes .progress-text {
