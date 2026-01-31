@@ -45,65 +45,247 @@
         </div>
 
     </header>
+<div class="config-page-background">
+    <div class="settings-content">
+        <div class="settings-header">
+            <h2>CONFIGURACIÓN</h2>
+        </div>
+        
+        <!-- Sección de Audio -->
+        <div class="settings-category">
+            <h3 class="category-title">AUDIO</h3>
+            <div class="control-group">
 
-<div class="volume-control">
-        <!-- Slider 1: Volumen -->
-        <div class="slider-cont">
-            <div class="volume-label">Volumen</div>
-            <div class="slider">
-                <input type="range" min="0" max="100" value="50" class="slider-input" data-id="volume">
-                <progress min="0" max="100" value="50" class="slider-progress"></progress>
-            </div>
-            <div class="sliderValue" data-id="volume">50</div>
-        </div>
-        
-        <!-- Slider 2: Field of View -->
-        <div class="slider-cont">
-            <div class="volume-label">Field of View</div>
-            <div class="slider">
-                <input type="range" min="0" max="100" value="50" class="slider-input" data-id="volume">
-                <progress min="0" max="100" value="50" class="slider-progress"></progress>
-            </div>
-            <div class="sliderValue" data-id="volume">50</div>
-        </div>
-        
-        <!-- Slider 3: Sensibilidad del Ratón -->
-        <div class="slider-cont">
-            <div class="volume-label">Sensibilidad del Ratón</div>
-            <div class="slider">
-                <input type="range" min="0.1" max="10.0" step="0.1" value="2.0" class="slider-input" data-id="sensitivity">
-                <progress min="0.1" max="10.0" value="2.0" class="slider-progress"></progress>
-            </div>
-            <div class="sliderValue" data-id="sensitivity">2.0</div>
-        </div>
-    </div>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            
-            const sliders = document.querySelectorAll(".slider-input");
-            
-            sliders.forEach(slider => {
-                const sliderId = slider.getAttribute("data-id");
-                const progressBar = document.querySelector(`.slider-progress`);
-                const sliderValue = document.querySelector(`.sliderValue[data-id="${sliderId}"]`);
+                <!-- Volumen General -->
+                <div class="control-item">
+                    <div class="control-label">
+                        <span>VOLUMEN GENERAL</span>
+                        <span class="sliderValue" data-id="master">75</span>
+                    </div>
+                    <div class="control-description">Volumen general del juego</div>
+                    <div class="slider-cont">
+                        <div class="slider">
+                            <input type="range" min="0" max="100" value="75" class="slider-input" data-id="master">
+                            <progress min="0" max="100" value="75" class="slider-progress"></progress>
+                        </div>
+                    </div>
+                </div>
                 
-                if (slider && progressBar && sliderValue) {
-                    
-                    progressBar.value = slider.value;
+                <!-- Volumen de Efectos -->
+                <div class="control-item">
+                    <div class="control-label">
+                        <span>VOLUMEN DE EFECTOS</span>
+                        <span class="sliderValue" data-id="sfx">60</span>
+                    </div>
+                    <div class="control-description">Volumen de efectos de sonido y ambientales</div>
+                    <div class="slider-cont">
+                        <div class="slider">
+                            <input type="range" min="0" max="100" value="60" class="slider-input" data-id="sfx">
+                            <progress min="0" max="100" value="60" class="slider-progress"></progress>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Volumen de Música -->
+                <div class="control-item">
+                    <div class="control-label">
+                        <span>VOLUMEN DE MÚSICA</span>
+                        <span class="sliderValue" data-id="music">80</span>
+                    </div>
+                    <div class="control-description">Volumen de la música</div>
+                    <div class="slider-cont">
+                        <div class="slider">
+                            <input type="range" min="0" max="100" value="80" class="slider-input" data-id="music">
+                            <progress min="0" max="100" value="80" class="slider-progress"></progress>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+        
+        <!-- Sección de Gráficos -->
+        <div class="settings-category">
+            <h3 class="category-title">GRÁFICOS</h3>
+            <div class="control-group">
+                <!-- Calidad Gráfica -->
+                <div class="control-item">
+                    <div class="control-label">CALIDAD GRÁFICA</div>
+                    <div class="control-description">Ajusta la calidad visual general</div>
+                    <div class="selector">
+                        <span>Preset:</span>
+                        <select>
+                            <option>MÁXIMA</option>
+                            <option selected>ALTA</option>
+                            <option>MEDIA</option>
+                            <option>BAJA</option>
+                            <option>MÍNIMA</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Resolución -->
+                <div class="control-item">
+                    <div class="control-label">RESOLUCIÓN</div>
+                    <div class="control-description">Establece la resolución de pantalla del juego</div>
+                    <div class="selector">
+                        <span>Resolución:</span>
+                        <select>
+                            <option>2560x1440</option>
+                            <option selected>1920x1080</option>
+                            <option>1600x900</option>
+                            <option>1366x768</option>
+                            <option>1280x720</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Campo de Visión -->
+                <div class="control-item">
+                    <div class="control-label">
+                        <span>CAMPO DE VISIÓN (FOV)</span>
+                        <span class="sliderValue" data-id="fov">80</span>
+                    </div>
+                    <div class="control-description">Ajusta el ángulo de visión de la cámara</div>
+                    <div class="slider-cont">
+                        <div class="slider">
+                            <input type="range" min="0" max="100" value="80" class="slider-input" data-id="fov">
+                            <progress min="0" max="100" value="80" class="slider-progress"></progress>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+  
+        <!-- Sección de Controles -->
+        <div class="settings-category">
+            <h3 class="category-title">CONTROLES</h3>
+            <div class="control-group">
+                <!-- Sensibilidad del Ratón -->
+                <div class="control-item">
+                    <div class="control-label">
+                        <span>SENSIBILIDAD DEL RATÓN</span>
+                        <span class="sliderValue" data-id="sensitivity">2.5</span>
+                    </div>
+                    <div class="control-description">Ajusta la sensibilidad del movimiento del ratón</div>
+                    <div class="slider-cont">
+                        <div class="slider">
+                            <input type="range" min="0.1" max="10.0" step="0.1" value="2.5" class="slider-input" data-id="sensitivity">
+                            <progress min="0.1" max="10.0" value="2.5" class="slider-progress"></progress>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Invertir Eje Y -->
+                <div class="control-item">
+                    <div class="control-label">INVERTIR EJE Y</div>
+                    <div class="control-description">Invertir la dirección vertical al mover la cámara</div>
+                    <div class="toggle-container">
+                        <span>Activar:</span>
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+        
+        <!-- Sección de Juego -->
+        <div class="settings-category">
+            <h3 class="category-title">JUEGO</h3>
+            <div class="control-group">
+                <!-- Dificultad -->
+                <div class="control-item">
+                    <div class="control-label">DIFICULTAD</div>
+                    <div class="control-description">Selecciona el nivel de dificultad del juego</div>
+                    <div class="selector">
+                        <span>Nivel:</span>
+                        <select>
+                            <option>FÁCIL</option>
+                            <option selected>NORMAL</option>
+                            <option>DIFÍCIL</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Idiomas -->
+                <div class="control-item">
+                    <div class="control-label">IDIOMA</div>
+                    <div class="control-description">Selecciona el idioma de la interfaz</div>
+                    <div class="selector">
+                        <span>Idioma:</span>
+                        <select>
+                            <option selected>ESPAÑOL</option>
+                            <option>ENGLISH</option>
+                            <option>FRANÇAIS</option>
+                            <option>DEUTSCH</option>
+                            <option>日本語</option>
+                        </select>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+        
+        <!-- Botones de acción -->
+        <div class="buttons-container">
+            <button class="btn btn-secondary">RESTAURAR AJUSTES</button>
+            <button class="btn btn-primary">GUARDAR CAMBIOS</button>
+            <button class="btn btn-secondary">CANCELAR</button>
+        </div>
+    </div> 
+</div> 
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Función para actualizar sliders
+        const sliders = document.querySelectorAll(".slider-input");
+        
+        sliders.forEach(slider => {
+            const sliderId = slider.getAttribute("data-id");
+            const progressBar = slider.nextElementSibling;
+            const sliderValue = slider.closest('.control-item').querySelector(`.sliderValue[data-id="${sliderId}"]`);
+            
+            if (slider && progressBar && sliderValue) {
+                progressBar.value = slider.value;
+                
+                // Formatear el valor según el tipo de slider
+                if (sliderId === 'sensitivity') {
                     sliderValue.textContent = parseFloat(slider.value).toFixed(1);
+                } else {
+                    sliderValue.textContent = parseInt(slider.value);
+                }
+                
+                // Actualizar cuando el usuario mueve el slider
+                slider.addEventListener("input", function() {
+                    const currentProgressBar = this.nextElementSibling;
+                    const currentValue = this.closest('.control-item').querySelector(`.sliderValue[data-id="${sliderId}"]`);
                     
+                    currentProgressBar.value = this.value;
                     
-                    slider.addEventListener("input", function() {
-                        const currentProgressBar = this.closest('.slider').querySelector('.slider-progress');
-                        const currentValue = this.closest('.slider-cont').querySelector('.sliderValue');
-                        
-                        currentProgressBar.value = this.value;
+                    if (sliderId === 'sensitivity') {
                         currentValue.textContent = parseFloat(this.value).toFixed(1);
-                    });
+                    } else {
+                        currentValue.textContent = parseInt(this.value);
+                    }
+                });
+            }
+        });
+        
+        // Efecto visual para botones
+        const buttons = document.querySelectorAll(".btn");
+        buttons.forEach(button => {
+            button.addEventListener("click", function() {
+                if (this.classList.contains("btn-primary")) {
+                    this.style.backgroundColor = "#ffffff";
+                    this.style.color = "#0d0c0b";
+                    setTimeout(() => {
+                        this.style.backgroundColor = "";
+                        this.style.color = "";
+                    }, 200);
                 }
             });
         });
-    </script>
+    });
+</script>
 
 </body>
