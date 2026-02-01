@@ -26,3 +26,34 @@ document.querySelectorAll('.carousel-cell').forEach(cell => {
     });
 });
 
+const initDarkMode = () => {
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    if (!darkModeBtn) return;
+    
+    const darkModeText = document.querySelector('.dark-mode-text');
+    
+    // Verificar preferencia guardada
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        darkModeText.textContent = 'Claro';
+    }
+    
+    // Evento click
+    darkModeBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        const isNowDark = document.body.classList.contains('dark-mode');
+        darkModeText.textContent = isNowDark ? 'Claro' : 'Oscuro';
+        localStorage.setItem('darkMode', isNowDark);
+        
+        // Efecto visual
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 200);
+    });
+};
+
+// Inicializar cuando cargue la página
+document.addEventListener('DOMContentLoaded', initDarkMode);

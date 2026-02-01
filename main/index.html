@@ -35,6 +35,12 @@
                 <input type="text" placeholder="Busca">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
+            <div class="dark-mode-toggle">
+                <button id="darkModeBtn" class="dark-mode-btn" aria-label="Cambiar modo oscuro/claro">
+                    <i class="fa-solid fa-moon"></i>
+                    <span class="dark-mode-text">Oscuro</span>
+                </button>
+            </div>
 
             <a href="#" class="menu">
                 <i class="fa-solid fa-bars"></i>
@@ -140,6 +146,102 @@
                 
     <!-- JS -->
     <script src="script.js" defer></script>
+<section class="caracteristicas-section">
+    <div class="caracteristicas-container">
+        <h2 class="caracteristicas-titulo">¿Qué hace único a PEAK?</h2>
+        <p class="caracteristicas-subtitulo">Las claves de la experiencia más épica de escalada</p>
+        
+        <div class="caracteristicas-grid">
+            <div class="caracteristica-burbuja">
+                <div class="caracteristica-icono">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h3 class="caracteristica-titulo">Multijugador</h3>
+                <p class="caracteristica-desc">Escalada cooperativa para hasta 4 jugadores</p>
+            </div>
+            <div class="caracteristica-burbuja">
+                <div class="caracteristica-icono">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <h3 class="caracteristica-titulo">Sobrevive</h3>
+                <p class="caracteristica-desc">Cada decisión importa. Un error puede ser fatal</p>
+            </div>
+            <div class="caracteristica-burbuja">
+                <div class="caracteristica-icono">
+                    <i class="fa-solid fa-face-laugh-beam"></i>
+                </div>
+                <h3 class="caracteristica-titulo">Risas aseguradas</h3>
+                <p class="caracteristica-desc">Física caótica y momentos divertidos con amigos (Psss, sabemos que has visto los clips en internet)</p>
+            </div>
+            <div class="caracteristica-burbuja">
+                <div class="caracteristica-icono">
+                    <i class="fa-solid fa-mountain"></i>
+                </div>
+                <h3 class="caracteristica-titulo">Mundo épico</h3>
+                <p class="caracteristica-desc">Escalada vertical en entornos impresionantes</p>
+            </div>
+            <div class="caracteristica-burbuja">
+                <div class="caracteristica-icono">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+                <h3 class="caracteristica-titulo">Supera retos</h3>
+                <p class="caracteristica-desc">Obstáculos únicos que pondrán a prueba tu habilidad</p>
+            </div>
+            <div class="caracteristica-burbuja">
+                <div class="caracteristica-icono">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+                <h3 class="caracteristica-titulo">Trabajo en equipo</h3>
+                <p class="caracteristica-desc">Una experiencia que os unirá por completo</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- FORMULARIO DE INSCRIPCIÓN A LA BETA -->
+<section class="beta-form-section">
+    <div class="beta-container">
+        <div class="beta-header">
+            <h2><i class="fa-solid fa-gamepad"></i> Acceso Anticipado a la Beta</h2>
+            <p>Sé de los primeros en probar PEAK antes del lanzamiento oficial</p>
+        </div>
+        
+        <div class="beta-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre"><i class="fa-solid fa-user"></i> Nombre completo</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email"><i class="fa-solid fa-envelope"></i> Correo electrónico</label>
+                    <input type="email" id="email" placeholder="tu@email.com">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="plataforma"><i class="fa-solid fa-desktop"></i> Plataforma preferida</label>
+                <select id="plataforma">
+                    <option value="">Selecciona tu plataforma</option>
+                    <option value="pc">PC (Steam)</option>
+                    <option value="playstation">PlayStation</option>
+                    <option value="xbox">Xbox</option>
+                </select>
+            </div>
+            
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="newsletter" checked>
+                <label for="newsletter">Recibir noticias sobre el desarrollo del juego</label>
+            </div>
+            
+            <button type="submit" class="beta-submit-btn">
+                <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
+            </button>
+            
+            <p class="beta-note">* Recibirás un correo de confirmación. Las claves beta se enviarán por orden de solicitud.</p>
+        </div>
+    </div>
+</section>
     
 </body>
 <!-- footerR -->
