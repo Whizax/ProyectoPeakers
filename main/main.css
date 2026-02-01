@@ -49,7 +49,6 @@ header{
     transform: scale(1.05);
 }
 
-/* Animación flotante */
 @keyframes floatLogo{
     0%{
         transform: translateY(0);
@@ -213,7 +212,6 @@ header{
     animation: fadeInUp 1.2s ease-out;
 }
 
-/* Título principal */
 .hero-main-title {
     font-family: 'Cascadia Code', monospace;
     font-size: clamp(2.5rem, 8vw, 5.5rem);
@@ -400,7 +398,6 @@ header{
     width: 100%;
 }
 
-/* Contenedor de la imagen con animación */
 .ticket-image-wrapper {
     position: relative;
     width: 100%;
@@ -452,7 +449,6 @@ header{
     overflow: hidden;
     text-align: center;
 }
-/* Texto dentro del contenedor cristal */
 .ticket-text h2 {
     font-size: 2.5rem;
     color: #fff;
@@ -742,7 +738,7 @@ footer {
     font-family: 'Roboto', sans-serif;
 }
 .footer-separator {
-    flex: 1; /* ocupa espacio entre info y redes */
+    flex: 1;
     height: 1px;
     background: linear-gradient(to right, transparent, #b470c9, transparent);
     margin: 0 20px;
@@ -825,12 +821,12 @@ footer {
     font-size: 64px;
     font-weight: 300;
 }
-/* ===== BOTONES DEL RELOJ ===== */
+
 .botonesreloj{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px; /* separación entre botones */
+    gap: 24px; 
 }
 
 .botonesreloj img{
@@ -839,12 +835,10 @@ footer {
     transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-/* botón central (play) más grande */
 .botonesreloj img:nth-child(2){
     width: 80px;
 }
 
-/* efecto hover */
 .botonesreloj img:hover{
     transform: scale(1.1);
     filter: drop-shadow(0 0 6px rgba(180,112,201,0.7));
@@ -949,8 +943,6 @@ color: white;
         transform: translateX(-50%);
     }
 }
-
-/* responsive: carrusel más estrecho en móvil */
 @media (max-width: 768px){
     .carrusel{
         max-width: 95%;
@@ -1536,7 +1528,6 @@ section,
 
 /*= APARTADO DE STYLE DE LA PÁGINA DE PERSONAJES =*/
 
-/* ESTRUCTURA GENERAL */
 .pagina-personajes body {
     display: flex;
     flex-direction: column;
@@ -1549,7 +1540,6 @@ section,
     padding-bottom: 60px;
 }
 
-/* CONTENEDOR PRINCIPAL */
 .pagina-personajes .main-content {
     display: flex;
     width: min(1400px, 98vw);
@@ -1559,7 +1549,6 @@ section,
     height: 750px;
 }
 
-/* COLUMNA IZQUIERDA */
 .pagina-personajes .left-column {
     flex: 0 0 400px;
     display: flex;
@@ -1568,7 +1557,6 @@ section,
     height: 100%;
 }
 
-/* COLUMNA DERECHA */
 .pagina-personajes .right-column {
     flex: 1;
     display: flex;
@@ -1576,7 +1564,6 @@ section,
     height: 100%;
 }
 
-/* CONTENEDOR DE ESTADÍSTICAS */
 .pagina-personajes .stats-container {
     border: 10px solid #8400ac;
     border-radius: 20px;
@@ -1600,7 +1587,6 @@ section,
     flex-shrink: 0;
 }
 
-/* BARRAS DE ESTADÍSTICAS */
 .pagina-personajes .stats-bars {
     width: 100%;
     display: flex;
@@ -1658,7 +1644,6 @@ section,
     transition: width 0.5s ease-in-out;
 }
 
-/* COLORES DE BARRAS */
 .pagina-personajes #health-bar .progress {
     background: linear-gradient(90deg, #ff4d4d, #ff9999);
 }
@@ -1682,7 +1667,6 @@ section,
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* CONTENEDOR DE DESCRIPCIÓN */
 .pagina-personajes .character-info {
     border: 8px solid #8400ac;
     border-radius: 20px;
@@ -1705,7 +1689,6 @@ section,
     border-bottom: 2px solid #f0f0f0;
 }
 
-/* Texto que se ajusta solo */
 .pagina-personajes .character-info p {
     font-size: 1rem;
     line-height: 1.6;
@@ -1713,16 +1696,14 @@ section,
     margin: 0;
     text-align: center;
     
-    /* El texto se ajusta automáticamente */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 6; /* Máximo 6 líneas */
+    -webkit-line-clamp: 6; 
     -webkit-box-orient: vertical;
     line-clamp: 6;
 }
 
-/* Para cuando el texto es muy corto */
 .pagina-personajes .character-info p:only-child {
     margin-top: auto;
     margin-bottom: auto;
@@ -1768,7 +1749,6 @@ section,
     }
 }
 
-/* CONTENEDOR DE PERSONAJE */
 .pagina-personajes .character-container {
     width: 100%;
     border: 10px solid #8400ac;
@@ -1785,7 +1765,6 @@ section,
     margin: 0;
 }
 
-/* FONDO DEL CONTENEDOR */
 .pagina-personajes .character-container::before {
     content: '';
     position: absolute;
@@ -1797,7 +1776,6 @@ section,
     z-index: 0;
 }
 
-/* OVERLAY BLANCO */
 .pagina-personajes .character-container::after {
     content: '';
     position: absolute;
@@ -1809,7 +1787,6 @@ section,
     z-index: 1;
 }
 
-/* IMAGEN DEL PERSONAJE */
 .pagina-personajes .character-image {
     flex: 1;
     display: flex;
@@ -1831,7 +1808,6 @@ section,
     object-fit: contain;
 }
 
-/* EFECTOS GLOW */
 .pagina-personajes .glow-blue {
     animation: glow-blue 2s infinite !important;
 }
@@ -1901,7 +1877,6 @@ section,
     }
 }
 
-/* NOMBRE DEL PERSONAJE */
 .pagina-personajes .character-name {
     position: absolute;
     bottom: 20px;
@@ -1923,7 +1898,6 @@ section,
         0 0 10px rgba(0, 0, 0, 0.7);
 }
 
-/* CONTROLES DE PERSONAJE */
 .pagina-personajes .character-controls {
     display: flex;
     flex-wrap: wrap;
@@ -1967,7 +1941,6 @@ section,
     border-color: rgba(255, 255, 255, 0.6);
 }
 
-/* ESTILOS ESPECÍFICOS DE BOTONES */
 .pagina-personajes #zombiepeaker {
     font-size: clamp(13px, 1.6vw, 22px);
     letter-spacing: -0.4px;
@@ -1979,21 +1952,19 @@ section,
     letter-spacing: -0.4px;
 }
 
-/* COLORES DE BOTONES */
 .pagina-personajes #peaker { 
-    background-color: #0066cc;
+    background-color: #7617a1;
 }
 .pagina-personajes #zombiepeaker { 
-    background-color: #cc0000;
+    background-color: #7617a1;
 }
 .pagina-personajes #bingbong { 
-    background-color: #ff9900;
+    background-color: #7617a1;
 }
 .pagina-personajes #scoutmaster { 
-    background-color: #663399;
+    background-color: #7617a1;
 }
 
-/* FOOTER FIJO */
 .pagina-personajes {
     display: flex;
     flex-direction: column;
