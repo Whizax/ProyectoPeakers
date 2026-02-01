@@ -25,3 +25,4 @@ document.querySelectorAll('.carousel-cell').forEach(cell => {
         indicator.style.opacity = '0';
     });
 });
+
