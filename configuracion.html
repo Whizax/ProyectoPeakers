@@ -233,58 +233,5 @@
         </div>
     </div> 
 </div> 
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Función para actualizar sliders
-        const sliders = document.querySelectorAll(".slider-input");
-        
-        sliders.forEach(slider => {
-            const sliderId = slider.getAttribute("data-id");
-            const progressBar = slider.nextElementSibling;
-            const sliderValue = slider.closest('.control-item').querySelector(`.sliderValue[data-id="${sliderId}"]`);
-            
-            if (slider && progressBar && sliderValue) {
-                progressBar.value = slider.value;
-                
-                // Formatear el valor según el tipo de slider
-                if (sliderId === 'sensitivity') {
-                    sliderValue.textContent = parseFloat(slider.value).toFixed(1);
-                } else {
-                    sliderValue.textContent = parseInt(slider.value);
-                }
-                
-                // Actualizar cuando el usuario mueve el slider
-                slider.addEventListener("input", function() {
-                    const currentProgressBar = this.nextElementSibling;
-                    const currentValue = this.closest('.control-item').querySelector(`.sliderValue[data-id="${sliderId}"]`);
-                    
-                    currentProgressBar.value = this.value;
-                    
-                    if (sliderId === 'sensitivity') {
-                        currentValue.textContent = parseFloat(this.value).toFixed(1);
-                    } else {
-                        currentValue.textContent = parseInt(this.value);
-                    }
-                });
-            }
-        });
-        
-        // Efecto visual para botones
-        const buttons = document.querySelectorAll(".btn");
-        buttons.forEach(button => {
-            button.addEventListener("click", function() {
-                if (this.classList.contains("btn-primary")) {
-                    this.style.backgroundColor = "#ffffff";
-                    this.style.color = "#0d0c0b";
-                    setTimeout(() => {
-                        this.style.backgroundColor = "";
-                        this.style.color = "";
-                    }, 200);
-                }
-            });
-        });
-    });
-</script>
-
+ <script src="js/script.js" defer></script>
 </body>
