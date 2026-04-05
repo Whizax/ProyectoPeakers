@@ -8,7 +8,7 @@ body {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
-    background: linear-gradient(rgba(255, 255, 255, 0.692), rgba(255, 255, 255, 0.692)),url("img/3512230372_preview_cima.png") center/cover no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, 0.692), rgba(255, 255, 255, 0.692)),url("../img/3512230372_preview_cima.png") center/cover no-repeat;
     background-attachment: fixed;
 }
 
@@ -1124,14 +1124,11 @@ section,
 }
 
 /*= APARTADO DE STYLE DE LA PÁGINA DE CONFIGURACION =*/
- * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+.config-page-background {
+    background-color: #0d0c0b;
+}
     
     body {
-        background-color: #0d0c0b;
         min-height: 100vh;
         padding: 0;
     }
